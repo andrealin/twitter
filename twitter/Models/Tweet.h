@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 // For Retweets
 @property (strong, nonatomic) User *retweetedByUser;  // user who retweeted if tweet is retweet
 
-// should I also be declaring initWithDictionary here?
+// TODO: should I also be declaring initWithDictionary here?
 + (NSMutableArray *)tweetsWithArray:(NSArray *)dictionaries;
 
 @end

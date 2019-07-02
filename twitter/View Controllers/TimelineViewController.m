@@ -95,9 +95,7 @@
                                             cell.userImageView.image = image;
                                         }
                                     }
-                                    failure:^(NSURLRequest *request, NSHTTPURLResponse * response, NSError *error) {
-                                        // do something for the failure condition
-                                    }];
+                                    failure:nil];
     
     
     return cell;

@@ -87,21 +87,20 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sRg-7H-uk2">
-                                                    <rect key="frame" x="23" y="19" width="59" height="59"/>
+                                                    <rect key="frame" x="8" y="19" width="59" height="59"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="59" id="1wJ-7I-kAm"/>
                                                         <constraint firstAttribute="height" constant="59" id="A6b-Yv-LV8"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTS_official" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SdZ-Yu-BRG">
-                                                    <rect key="frame" x="90" y="19" width="84.5" height="18"/>
+                                                    <rect key="frame" x="75" y="19" width="84.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AY-me-rN5">
-                                                    <rect key="frame" x="90" y="37" width="277" height="72"/>
-                                                    <color key="backgroundColor" red="0.77462225470000001" green="0.61420567940000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <rect key="frame" x="75" y="45" width="292" height="54"/>
                                                     <string key="text">[PREVIEW] #BTS (방탄소년단) 'BTS MEMORIES OF 2018' DVD PREVIEW SPOT 
 (https://youtu.be/tbU5ic3WYVs )</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -109,7 +108,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@bts_bighit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAZ-hP-rl5">
-                                                    <rect key="frame" x="182.5" y="19" width="80.5" height="18"/>
+                                                    <rect key="frame" x="167.5" y="19" width="80.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -130,7 +129,7 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="sRg-7H-uk2" firstAttribute="leading" secondItem="Cyd-Ov-Ld6" secondAttribute="leadingMargin" constant="8" id="9bJ-od-AfO"/>
+                                                <constraint firstItem="sRg-7H-uk2" firstAttribute="leading" secondItem="Cyd-Ov-Ld6" secondAttribute="leading" constant="8" id="9bJ-od-AfO"/>
                                                 <constraint firstAttribute="bottom" secondItem="vEq-bk-AsA" secondAttribute="bottom" constant="8" id="HPC-eT-ZJ4"/>
                                                 <constraint firstItem="SdZ-Yu-BRG" firstAttribute="leading" secondItem="sRg-7H-uk2" secondAttribute="trailing" constant="8" id="HaK-Sc-fod"/>
                                                 <constraint firstItem="tAZ-hP-rl5" firstAttribute="leading" secondItem="SdZ-Yu-BRG" secondAttribute="trailing" constant="8" id="JiV-g6-FKp"/>
@@ -140,7 +139,7 @@
                                                 <constraint firstItem="5kK-xf-ipV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2AY-me-rN5" secondAttribute="bottom" constant="8" id="al7-Ke-gtW"/>
                                                 <constraint firstItem="mjc-JM-Rdi" firstAttribute="trailing" secondItem="Cyd-Ov-Ld6" secondAttribute="trailingMargin" constant="8" id="dgu-fZ-Ig0"/>
                                                 <constraint firstItem="2AY-me-rN5" firstAttribute="leading" secondItem="SdZ-Yu-BRG" secondAttribute="leading" id="exX-Uf-VB2"/>
-                                                <constraint firstItem="2AY-me-rN5" firstAttribute="top" secondItem="SdZ-Yu-BRG" secondAttribute="bottom" id="fN1-ww-XoN"/>
+                                                <constraint firstItem="2AY-me-rN5" firstAttribute="top" secondItem="SdZ-Yu-BRG" secondAttribute="bottom" constant="8" id="fN1-ww-XoN"/>
                                                 <constraint firstAttribute="trailing" secondItem="2AY-me-rN5" secondAttribute="trailing" constant="8" id="hel-py-IfJ"/>
                                                 <constraint firstItem="5kK-xf-ipV" firstAttribute="bottom" secondItem="vEq-bk-AsA" secondAttribute="bottom" id="l86-lR-hJv"/>
                                                 <constraint firstItem="tAZ-hP-rl5" firstAttribute="top" secondItem="SdZ-Yu-BRG" secondAttribute="top" id="rTQ-Hi-AGO"/>
