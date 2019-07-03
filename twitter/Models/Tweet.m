@@ -58,7 +58,7 @@
         Tweet *tweet = [[Tweet alloc] initWithDictionary:dictionary];
         [tweets addObject:tweet];
     }
-    return tweets;
+    return [tweets copy]; // used to be tweets
 }
 
 @end

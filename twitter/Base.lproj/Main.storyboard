@@ -176,14 +176,59 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="ugE-Ul-H9I"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home Timeline" id="MOc-fV-EZE"/>
+                    <navigationItem key="navigationItem" title="Home Timeline" id="MOc-fV-EZE">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="edit-icon" id="MJF-XD-JDb">
+                            <connections>
+                                <segue destination="jyu-Vk-ohk" kind="presentation" id="eYO-Jm-POH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Naz-yG-uTq" id="jB9-yt-pl4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQh-hN-GQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1660" y="36.431784107946029"/>
+            <point key="canvasLocation" x="1402" y="37"/>
+        </scene>
+        <!--Compose View Controller-->
+        <scene sceneID="iz1-Ny-rUy">
+            <objects>
+                <viewController id="eRJ-xe-wys" customClass="ComposeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UhI-qW-rLe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fge-pz-cjm">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="a8x-ft-hPU"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nto-bv-fsd">
+                        <barButtonItem key="leftBarButtonItem" image="close-icon" id="7ry-3j-RkO">
+                            <connections>
+                                <action selector="closeAction:" destination="eRJ-xe-wys" id="ZJA-fn-TgW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="RO2-24-4wQ">
+                            <connections>
+                                <action selector="tweetAction:" destination="eRJ-xe-wys" id="G6P-by-oXm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textView" destination="Fge-pz-cjm" id="jst-Dh-aJA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hO1-bC-lfe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2141.5999999999999" y="-639.13043478260875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WUT-Ke-VeR">
@@ -201,11 +246,31 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JHS-35-jFs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="860" y="36.431784107946029"/>
+            <point key="canvasLocation" x="721" y="37"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZJk-OK-Koj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jyu-Vk-ohk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QPa-gw-yBv">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eRJ-xe-wys" kind="relationship" relationship="rootViewController" id="fPK-Eu-Fbu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BYG-3C-m8g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1401" y="-639"/>
         </scene>
     </scenes>
     <resources>
         <image name="TwitterLogoBlue" width="200" height="200"/>
+        <image name="close-icon" width="26" height="24"/>
+        <image name="edit-icon" width="30" height="27"/>
         <image name="favor-icon" width="30" height="30"/>
         <image name="retweet-icon" width="30" height="30"/>
     </resources>
