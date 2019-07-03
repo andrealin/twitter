@@ -93,7 +93,7 @@
                                                         <constraint firstAttribute="height" constant="59" id="A6b-Yv-LV8"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTS_official" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SdZ-Yu-BRG">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="BTS_official" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SdZ-Yu-BRG">
                                                     <rect key="frame" x="75" y="19" width="84.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -107,13 +107,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@bts_bighit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAZ-hP-rl5">
-                                                    <rect key="frame" x="167.5" y="19" width="80.5" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="@bts_bighit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAZ-hP-rl5">
+                                                    <rect key="frame" x="167.5" y="19" width="167.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjc-JM-Rdi">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="10h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjc-JM-Rdi">
                                                     <rect key="frame" x="343" y="19" width="25" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -130,6 +130,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="sRg-7H-uk2" firstAttribute="leading" secondItem="Cyd-Ov-Ld6" secondAttribute="leading" constant="8" id="9bJ-od-AfO"/>
+                                                <constraint firstItem="mjc-JM-Rdi" firstAttribute="leading" secondItem="tAZ-hP-rl5" secondAttribute="trailing" constant="8" id="ERx-3Z-o6I"/>
                                                 <constraint firstAttribute="bottom" secondItem="vEq-bk-AsA" secondAttribute="bottom" constant="8" id="HPC-eT-ZJ4"/>
                                                 <constraint firstItem="SdZ-Yu-BRG" firstAttribute="leading" secondItem="sRg-7H-uk2" secondAttribute="trailing" constant="8" id="HaK-Sc-fod"/>
                                                 <constraint firstItem="tAZ-hP-rl5" firstAttribute="leading" secondItem="SdZ-Yu-BRG" secondAttribute="trailing" constant="8" id="JiV-g6-FKp"/>
