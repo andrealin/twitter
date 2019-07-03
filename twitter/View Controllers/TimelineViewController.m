@@ -11,6 +11,7 @@
 #import "TweetCell.h"
 #import "Tweet.h"
 #import "UIImageView+AFNetworking.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -103,6 +104,11 @@
     NSString *URLString = tweet.user.profilePictureURL;
     
     NSURL *URL = [NSURL URLWithString:URLString];
+    
+    // make profile pic a circle
+    CALayer *imageLayer = cell.userImageView.layer;
+    [imageLayer setCornerRadius:cell.userImageView.frame.size.width/2];
+    [imageLayer setMasksToBounds:YES];
     
     [cell.userImageView setImageWithURL:URL];
     
