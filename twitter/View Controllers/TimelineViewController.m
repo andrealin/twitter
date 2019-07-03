@@ -66,8 +66,8 @@
     cell.usernameLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
     cell.tweetTextLabel.text = tweet.text;
     cell.dateLabel.text = tweet.createdAtString;
-    [cell.retweetButton setTitle:[NSString stringWithFormat:@"Retweet: %d", tweet.retweetCount] forState:UIControlStateNormal];
-    [cell.favoriteButton setTitle:[NSString stringWithFormat:@"Favorite: %d", tweet.favoriteCount] forState:UIControlStateNormal];
+    [cell.retweetButton setTitle:[NSString stringWithFormat:@"%d", tweet.retweetCount] forState:UIControlStateNormal];
+    [cell.favoriteButton setTitle:[NSString stringWithFormat:@"%d", tweet.favoriteCount] forState:UIControlStateNormal];
     
     NSString *URLString = tweet.user.profilePictureURL;
     
