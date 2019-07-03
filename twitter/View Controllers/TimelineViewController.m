@@ -14,7 +14,7 @@
 
 @interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView; // view controller has a tableView as a subview
 @property (nonatomic, strong) NSArray<Tweet *> *tweets; // view controller stores data passed into the completion handler
 
 @end
@@ -29,6 +29,7 @@
     self.tableView.delegate = self;
     
     // Get timeline
+    // Make an API request
     // APIManager calls the completion handler passing back data
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
