@@ -28,13 +28,13 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    // Get timeline
-    // Make an API request
-    // APIManager calls the completion handler passing back data
+    // initial load of data
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             self.tweets = tweets; // view controller stores data passed into the completion handler
             NSLog(@"😎😎😎 Successfully loaded home timeline");
+            
+            // Reload the tableView now that there is new data
             [self.tableView reloadData]; // reload the table view. table view asks its dataSource for numberOfRows & cellForRowAt
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
@@ -42,11 +42,42 @@
         
     }];
     
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+// Makes a network request to get updated data
+// Updates the tableView with the new data
+// Hides the RefreshControl
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+    
+    // Get timeline
+    // Make an API request
+    // APIManager calls the completion handler passing back data
+    [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
+        if (tweets) {
+            self.tweets = tweets; // view controller stores data passed into the completion handler
+            NSLog(@"😎😎😎 Successfully loaded home timeline");
+            
+            // Reload the tableView now that there is new data
+            [self.tableView reloadData]; // reload the table view. table view asks its dataSource for numberOfRows & cellForRowAt
+            
+            // Tell the refreshControl to stop spinning
+            [refreshControl endRefreshing];
+            
+        } else {
+            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
+        }
+        
+    }];
+    
 }
 
 
