@@ -134,6 +134,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJ4-sb-nMf">
                                                     <rect key="frame" x="302" y="155.5" width="30" height="30"/>
                                                     <state key="normal" image="favor-icon"/>
+                                                    <connections>
+                                                        <action selector="didTapFavorite:" destination="B2u-4q-iha" eventType="touchUpInside" id="nYd-hu-ybo"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

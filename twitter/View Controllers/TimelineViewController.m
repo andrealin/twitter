@@ -95,6 +95,8 @@
     
     Tweet *tweet = self.tweets[indexPath.row];
     
+    cell.tweet = tweet;
+    
     cell.nameLabel.text = tweet.user.name;
     cell.usernameLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
     cell.tweetTextLabel.text = tweet.text;
@@ -139,6 +141,5 @@
     }];
     [self.tableView reloadData];
 }
-
 
 @end
