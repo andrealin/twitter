@@ -97,23 +97,7 @@
     
     cell.tweet = tweet;
     
-    cell.nameLabel.text = tweet.user.name;
-    cell.usernameLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
-    cell.tweetTextLabel.text = tweet.text;
-    cell.dateLabel.text = tweet.createdAtString;
-    [cell.retweetButton setTitle:[NSString stringWithFormat:@"%d", tweet.retweetCount] forState:UIControlStateNormal];
-    [cell.favoriteButton setTitle:[NSString stringWithFormat:@"%d", tweet.favoriteCount] forState:UIControlStateNormal];
-    
-    NSString *URLString = tweet.user.profilePictureURL;
-    
-    NSURL *URL = [NSURL URLWithString:URLString];
-    
-    // make profile pic a circle
-    CALayer *imageLayer = cell.userImageView.layer;
-    [imageLayer setCornerRadius:cell.userImageView.frame.size.width/2];
-    [imageLayer setMasksToBounds:YES];
-    
-    [cell.userImageView setImageWithURL:URL];
+    [cell refreshData];
     
     return cell;
 }
