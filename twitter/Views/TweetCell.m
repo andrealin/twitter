@@ -14,6 +14,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    // user image can be tapped
     UITapGestureRecognizer *profileTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapUserProfile:)];
     [self.userImageView addGestureRecognizer:profileTapGestureRecognizer];
     [self.userImageView setUserInteractionEnabled:YES];
@@ -26,7 +28,7 @@
 - (IBAction)didTapFavorite:(id)sender {
     
     
-    if (self.tweet.favorited) {
+    if (self.tweet.favorited) { // already favorited this tweet
         // Update the local tweet model
         self.tweet.favorited = NO;
         self.tweet.favoriteCount -= 1;
@@ -44,7 +46,7 @@
             }
         }];
     }
-    else {
+    else { // has not favorited this tweet
         // Update the local tweet model
         self.tweet.favorited = YES;
         self.tweet.favoriteCount += 1;
@@ -52,7 +54,7 @@
         // Update cell UI
         [self refreshData];
         
-        // Send a POST request to the POST favorites/create endpoint
+        // Send a POST request to the POST favorites/destroy endpoint
         [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
             if(error){
                 NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
@@ -65,7 +67,7 @@
     
 }
 - (IBAction)didTapRetweet:(id)sender {
-    if (self.tweet.retweeted) {
+    if (self.tweet.retweeted) { // already retweeted this tweet
         // Update the local tweet model
         self.tweet.retweeted = NO;
         self.tweet.retweetCount -= 1;
@@ -73,7 +75,7 @@
         // Update cell UI
         [self refreshData];
         
-        // Send a POST request to the POST favorites/create endpoint
+        // Send a POST request to the POST retweet endpoint
         [[APIManager shared] unretweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
             if(error){
                 NSLog(@"Error unretweeting tweet: %@", error.localizedDescription);
@@ -83,7 +85,7 @@
             }
         }];
     }
-    else {
+    else { // has not retweeted this tweet
         // Update the local tweet model
         self.tweet.retweeted = YES;
         self.tweet.retweetCount += 1;
@@ -91,7 +93,7 @@
         // Update cell UI
         [self refreshData];
         
-        // Send a POST request to the POST favorites/create endpoint
+        // Send a POST request to the POST unretweet endpoint
         [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
             if(error){
                 NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
@@ -104,7 +106,7 @@
 }
 
 - (void)refreshData {
-    // code
+    // update the cell's view based on the tweet and user models
     
     self.nameLabel.text = self.tweet.user.name;
     self.usernameLabel.text = [NSString stringWithFormat:@"@%@", self.tweet.user.screenName];

@@ -23,6 +23,7 @@
             self.retweetedByUser = [[User alloc] initWithDictionary:userDictionary];
             
             // Change tweet to original tweet
+            // why?
             dictionary = originalTweet;
         }
         self.idStr = dictionary[@"id_str"];
@@ -60,7 +61,7 @@
         Tweet *tweet = [[Tweet alloc] initWithDictionary:dictionary];
         [tweets addObject:tweet];
     }
-    return [tweets copy]; // used to be tweets
+    return [tweets copy];
 }
 
 @end

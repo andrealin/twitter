@@ -36,11 +36,14 @@
     // initial load of data
     [self fetchData];
     
+    // refresh control
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:refreshControl atIndex:0];
 }
 
+// Makes a network request to get updated data
+// Updates the tableView with the new data
 - (void) fetchData {
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
@@ -61,9 +64,7 @@
     [super didReceiveMemoryWarning];
 }
 
-// Makes a network request to get updated data
-// Updates the tableView with the new data
-// Hides the RefreshControl
+// Does everything that self.fetchData does an also hides the RefreshControl
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
     
     // Get timeline
@@ -90,34 +91,33 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // numberOfRows returns the number of items returned from the API
-    return self.tweets.count;
+    return self.tweets.count; // numberOfRows returns the number of items returned from the API
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // cellForRow returns an instance of the custom cell with that reuse identifier with its elements populated with data at the index asked for
     
-    TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell" ];
+    TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell" ]; // get the cell view at the index
     
-    Tweet *tweet = self.tweets[indexPath.row];
+    Tweet *tweet = self.tweets[indexPath.row]; // get the tweet model at the index
     
     cell.tweet = tweet;
     
     cell.delegate = self;
     
-    [cell refreshData];
+    [cell refreshData]; // refresh the UI based on the tweet data
     
     return cell;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([@"profileSegue" isEqualToString:segue.identifier]) {
+    if ([@"profileSegue" isEqualToString:segue.identifier]) { // profile view controller
         // help me
         UINavigationController *navigationController = [segue destinationViewController];
         ProfileViewController *profileController = (ProfileViewController*)navigationController.topViewController;
         profileController.user = sender;
     }
-    else if ([[segue destinationViewController] isKindOfClass:[UINavigationController class]]){
+    else if ([[segue destinationViewController] isKindOfClass:[UINavigationController class]]){ // compose tweet controller
         UINavigationController *navigationController = [segue destinationViewController];
         ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
         composeController.delegate = self;
@@ -125,7 +125,7 @@
 }
 
 - (void)didTweet:(Tweet *)tweet {
-    [self fetchData];
+    [self fetchData]; // so that we can see the new tweet I just made on the home timeline
 }
 
 - (IBAction)logoutClicked:(id)sender {

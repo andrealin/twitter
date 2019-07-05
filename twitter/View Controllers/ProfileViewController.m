@@ -17,7 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.nameLabel.text = self.user.name;
     self.usernameLabel.text = [NSString stringWithFormat:@"@%@", self.user.screenName];
