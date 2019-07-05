@@ -130,6 +130,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1so-cF-0SB">
                                                     <rect key="frame" x="224" y="155.5" width="30" height="30"/>
                                                     <state key="normal" image="retweet-icon"/>
+                                                    <connections>
+                                                        <action selector="didTapRetweet:" destination="B2u-4q-iha" eventType="touchUpInside" id="OED-aX-pqw"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJ4-sb-nMf">
                                                     <rect key="frame" x="302" y="155.5" width="30" height="30"/>
@@ -166,8 +169,10 @@
                                         <connections>
                                             <outlet property="dateLabel" destination="mjc-JM-Rdi" id="0Qr-yU-YxH"/>
                                             <outlet property="favoriteButton" destination="vEq-bk-AsA" id="EP5-bp-GPr"/>
+                                            <outlet property="favoriteIconButton" destination="bJ4-sb-nMf" id="4dO-gE-yEQ"/>
                                             <outlet property="nameLabel" destination="SdZ-Yu-BRG" id="cpj-Qa-cJV"/>
                                             <outlet property="retweetButton" destination="5kK-xf-ipV" id="cEN-UC-3hx"/>
+                                            <outlet property="retweetIconButton" destination="1so-cF-0SB" id="hxl-zn-G4N"/>
                                             <outlet property="tweetTextLabel" destination="2AY-me-rN5" id="HJt-kq-B2j"/>
                                             <outlet property="userImageView" destination="sRg-7H-uk2" id="eQN-as-9iD"/>
                                             <outlet property="usernameLabel" destination="tAZ-hP-rl5" id="zSJ-BL-b1U"/>

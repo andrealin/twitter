@@ -28,6 +28,10 @@
         self.tweet.favorited = NO;
         self.tweet.favoriteCount -= 1;
         
+        UIImage *favorIconRed = [UIImage imageNamed:@"favor-icon-red"];
+        [sender setImage:favorIconRed forState:UIControlStateSelected];
+        [sender setSelected:YES];
+        
         // Update cell UI
         [self refreshData];
         
@@ -46,6 +50,10 @@
         self.tweet.favorited = YES;
         self.tweet.favoriteCount += 1;
         
+        UIImage *favorIcon = [UIImage imageNamed:@"favor-icon"];
+        [sender setImage:favorIcon forState:UIControlStateNormal];
+        [sender setSelected:NO];
+        
         // Update cell UI
         [self refreshData];
         
@@ -61,6 +69,44 @@
     }
     
 }
+- (IBAction)didTapRetweet:(id)sender {
+    if (self.tweet.retweeted) {
+        // Update the local tweet model
+        self.tweet.retweeted = NO;
+        self.tweet.retweetCount -= 1;
+        
+        // Update cell UI
+        [self refreshData];
+        
+        // Send a POST request to the POST favorites/create endpoint
+        [[APIManager shared] unretweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
+            if(error){
+                NSLog(@"Error unretweeting tweet: %@", error.localizedDescription);
+            }
+            else{
+                NSLog(@"Successfully unretweeted the following Tweet: %@", tweet.text);
+            }
+        }];
+    }
+    else {
+        // Update the local tweet model
+        self.tweet.retweeted = YES;
+        self.tweet.retweetCount += 1;
+        
+        // Update cell UI
+        [self refreshData];
+        
+        // Send a POST request to the POST favorites/create endpoint
+        [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
+            if(error){
+                NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
+            }
+            else{
+                NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
+            }
+        }];
+    }
+}
 
 - (void)refreshData {
     // code
@@ -69,6 +115,7 @@
     self.usernameLabel.text = [NSString stringWithFormat:@"@%@", self.tweet.user.screenName];
     self.tweetTextLabel.text = self.tweet.text;
     self.dateLabel.text = self.tweet.createdAtString;
+    
     [self.retweetButton setTitle:[NSString stringWithFormat:@"%d", self.tweet.retweetCount] forState:UIControlStateNormal];
     [self.favoriteButton setTitle:[NSString stringWithFormat:@"%d", self.tweet.favoriteCount] forState:UIControlStateNormal];
     
