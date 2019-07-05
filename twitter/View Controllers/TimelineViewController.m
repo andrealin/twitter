@@ -34,6 +34,14 @@
     self.tableView.delegate = self;
     
     // initial load of data
+    [self fetchData];
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
+}
+
+- (void) fetchData {
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             self.tweets = tweets; // view controller stores data passed into the completion handler
@@ -46,16 +54,11 @@
         }
         
     }];
-    
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
-    [self.tableView insertSubview:refreshControl atIndex:0];
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 // Makes a network request to get updated data
@@ -122,20 +125,9 @@
 }
 
 - (void)didTweet:(Tweet *)tweet {
-    [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
-        if (tweets) {
-            self.tweets = tweets; // view controller stores data passed into the completion handler
-            NSLog(@"😎😎😎 Successfully loaded home timeline");
-            
-            // Reload the tableView now that there is new data
-            [self.tableView reloadData]; // reload the table view. table view asks its dataSource for numberOfRows & cellForRowAt
-        } else {
-            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
-        }
-        
-    }];
-    [self.tableView reloadData];
+    [self fetchData];
 }
+
 - (IBAction)logoutClicked:(id)sender {
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
