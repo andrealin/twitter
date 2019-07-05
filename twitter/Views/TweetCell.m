@@ -28,10 +28,6 @@
         self.tweet.favorited = NO;
         self.tweet.favoriteCount -= 1;
         
-        UIImage *favorIconRed = [UIImage imageNamed:@"favor-icon-red"];
-        [sender setImage:favorIconRed forState:UIControlStateSelected];
-        [sender setSelected:YES];
-        
         // Update cell UI
         [self refreshData];
         
@@ -49,10 +45,6 @@
         // Update the local tweet model
         self.tweet.favorited = YES;
         self.tweet.favoriteCount += 1;
-        
-        UIImage *favorIcon = [UIImage imageNamed:@"favor-icon"];
-        [sender setImage:favorIcon forState:UIControlStateNormal];
-        [sender setSelected:NO];
         
         // Update cell UI
         [self refreshData];
@@ -115,6 +107,33 @@
     self.usernameLabel.text = [NSString stringWithFormat:@"@%@", self.tweet.user.screenName];
     self.tweetTextLabel.text = self.tweet.text;
     self.dateLabel.text = self.tweet.createdAtString;
+    
+    
+    UIImage *favorIcon = [UIImage imageNamed:@"favor-icon"];
+    [self.favoriteIconButton setImage:favorIcon forState:UIControlStateNormal];
+    
+    UIImage *favorIconRed = [UIImage imageNamed:@"favor-icon-red"];
+    [self.favoriteIconButton setImage:favorIconRed forState:UIControlStateSelected];
+    
+    UIImage *retweetIcon = [UIImage imageNamed:@"retweet-icon"];
+    [self.retweetIconButton setImage:retweetIcon forState:UIControlStateSelected];
+    
+    UIImage *retweetIconGreen = [UIImage imageNamed:@"retweet-icon-green"];
+    [self.retweetIconButton setImage:retweetIconGreen forState:UIControlStateSelected];
+    
+    if (self.tweet.favorited) {
+        [self.favoriteIconButton setSelected:YES];
+    }
+    else {
+        [self.favoriteIconButton setSelected:NO];
+    }
+    
+    if (self.tweet.retweeted) {
+        [self.retweetIconButton setSelected:YES];
+    }
+    else {
+        [self.retweetIconButton setSelected:NO];
+    }
     
     [self.retweetButton setTitle:[NSString stringWithFormat:@"%d", self.tweet.retweetCount] forState:UIControlStateNormal];
     [self.favoriteButton setTitle:[NSString stringWithFormat:@"%d", self.tweet.favoriteCount] forState:UIControlStateNormal];
