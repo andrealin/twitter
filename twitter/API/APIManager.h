@@ -20,6 +20,5 @@
 - (void)unfavorite:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
 - (void)retweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
 - (void)unretweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
-// TODO: as you want to support other API requests to get a users timeline, favorite a tweet, retweet, add a function for each API request
 
 @end
