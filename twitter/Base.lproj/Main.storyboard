@@ -217,15 +217,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fge-pz-cjm">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fge-pz-cjm">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Fge-pz-cjm" firstAttribute="top" secondItem="a8x-ft-hPU" secondAttribute="top" id="MFZ-m1-Y5a"/>
+                            <constraint firstItem="Fge-pz-cjm" firstAttribute="leading" secondItem="a8x-ft-hPU" secondAttribute="leading" id="SzR-NC-USj"/>
+                            <constraint firstItem="Fge-pz-cjm" firstAttribute="trailing" secondItem="a8x-ft-hPU" secondAttribute="trailing" id="Xdk-9e-Ay6"/>
+                            <constraint firstItem="Fge-pz-cjm" firstAttribute="bottom" secondItem="a8x-ft-hPU" secondAttribute="bottom" id="bcc-Hs-iS1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="a8x-ft-hPU"/>
                     </view>
                     <navigationItem key="navigationItem" id="nto-bv-fsd">
